@@ -1,8 +1,6 @@
-# Laravel Project Management API
+# Backend Developer Assessment
 
-## Overview
-
-This is a Laravel-based Project Management API with authentication, timesheets, and an Entity-Attribute-Value (EAV) system for dynamic project attributes. It includes CRUD operations, filtering, and authentication using Laravel Passport.
+This project is a Laravel-based backend application that implements core models, EAV (Entity-Attribute-Value) dynamic attributes, RESTful API endpoints, and a flexible filtering system. It uses Laravel Passport for authentication and follows PSR standards and Laravel best practices.
 
 ---
 
@@ -18,20 +16,27 @@ This is a Laravel-based Project Management API with authentication, timesheets, 
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+### 1. Prerequisites
+
+- PHP >= 8.0
+- Composer
+- MySQL
+- Laravel Passport (for authentication)
+
+### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/fares-kh-esen/astudio-practical-assesment.git
 cd astudio-practical-assesment
 ```
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 
 ```bash
 composer install
 ```
 
-### 3. Configure Environment
+### 4. Configure Environment
 
 Copy `.env.example` to `.env`:
 
@@ -39,27 +44,36 @@ Copy `.env.example` to `.env`:
 cp .env.example .env
 ```
 
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
+
 Update `.env` file with your database and mail settings.
 
-### 4. Generate Application Key
+### 5. Generate Application Key
 
 ```bash
 php artisan key:generate
 ```
 
-### 5. Set Up Database
+### 6. Set Up Database
 
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Install Laravel Passport
+### 7. Install Laravel Passport
 
 ```bash
 php artisan passport:install
 ```
 
-### 7. Start the Server
+### 8. Start the Server
 
 ```bash
 php artisan serve
@@ -122,40 +136,6 @@ POST /api/logout
 
 ```json
 Authorization: Bearer your-access-token
-```
-
----
-
-### Users
-
-#### Get All Users
-
-```http
-GET /api/users
-```
-
-#### Get User by ID
-
-```http
-GET /api/users/{id}
-```
-
-#### Create User
-
-```http
-POST /api/users
-```
-
-#### Update User
-
-```http
-PUT /api/users/{id}
-```
-
-#### Delete User
-
-```http
-DELETE /api/users/{id}
 ```
 
 ---
@@ -345,19 +325,6 @@ POST /api/attributes
 POST /api/attribute-values
 ```
 
-#### Fetch Projects with Attributes
-
-```http
-GET /api/projects
-```
-
-#### Filter Projects by Attributes
-
-```http
-GET /api/projects?filters[department]=IT
-```
-
----
 
 ## Test Credentials
 
@@ -373,7 +340,3 @@ Password: password123
 ## Deliverables
 
 -   ***
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
