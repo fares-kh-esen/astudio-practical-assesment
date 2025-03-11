@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-
+    use  HasFactory;
     protected $fillable = [
         'name',
         'status',
@@ -20,5 +21,10 @@ class Project extends Model
     public function timesheets()
     {
         return $this->hasMany(Timesheet::class);
+    }
+
+    public function attributeValues()
+    {
+        return $this->hasMany(AttributeValue::class , 'entity_id');
     }
 }

@@ -9,6 +9,7 @@ class AttributeValue extends Model
     protected $fillable = [
         'attribute_id',
         'entity_id',
+        'entity_type',
         'value',
     ];
 
@@ -17,8 +18,8 @@ class AttributeValue extends Model
         return $this->belongsTo(Attribute::class);
     }
 
-    public function project()
+    public function entity()
     {
-        return $this->belongsTo(Project::class, 'entity_id');
+        return $this->morphTo();
     }
 }
