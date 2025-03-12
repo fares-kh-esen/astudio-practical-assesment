@@ -67,11 +67,22 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-### 7. Install Laravel Passport
+### 7. Generating a Personal Access Client
+-   To generate a Personal Access Client for issuing personal access tokens, run the following Artisan command:
 
 ```bash
-php artisan passport:install
+php artisan passport:client --personal
 ```
+
+## What This Command Does
+
+-   Creates a Personal Access Client in the oauth_clients table.
+
+-   This client is used to issue personal access tokens for authenticated users.
+
+-   Personal access tokens are long-lived and do not expire unless manually revoked.
+
+
 
 ### 8. Start the Server
 
